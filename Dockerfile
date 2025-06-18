@@ -3,6 +3,7 @@
 FROM ubuntu:24.04
 
 RUN apt-get update
+RUN apt-get upgrade
 RUN apt-get install -y \
     python3 \
     python3-dev \
@@ -11,4 +12,6 @@ RUN apt-get install -y \
     openssl \
     libssl-dev \
     libbz2-dev \
+    libmcpp-dev \
+    libdb5.3++-dev \
     build-essential
