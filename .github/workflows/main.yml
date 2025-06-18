@@ -20,7 +20,7 @@ jobs:
           tar zxf zeroc-ice-3.6.5.tar.gz
           docker run --rm -v $PWD/zeroc-ice-3.6.5:/build builder /bin/bash -c "cd /build ; python3 setup.py bdist_wheel"
       - name: Upload artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: artifacts
           path: zeroc-ice-3.6.5/dist/*.whl
@@ -31,11 +31,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Download artifacts from build
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4
       - name: List artifacts
         run: ls -R
       - name: Release
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         with:
           files: |
             artifacts/*.whl
